@@ -17,12 +17,13 @@ export const Cart = () => {
         <h1>Your Cart Items</h1>
       </div>
       <div className="cart">
-        {PRODUCTS.map((product) => {
-          if (cartItems[product.id] !== 0) {
-            return <CartItem data={product} />;
-          }
-        })}
-      </div>
+  {PRODUCTS.map((product) => {
+    if (cartItems[product.id] !== 0) {
+      return <CartItem key={product.id} data={product} />;
+    } 
+    return null; // This ensures a value is returned for every iteration
+  })}
+</div>
 
       {totalAmount > 0 ? (
         <div className="checkout">
